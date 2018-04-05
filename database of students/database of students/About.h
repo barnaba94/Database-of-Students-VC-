@@ -99,15 +99,10 @@ namespace databaseofstudents {
 #pragma endregion
 
 //==============================================================================
-private: System::Void About_Load(System::Object^  sender, System::EventArgs^  e)
-{
-
-}
+private: System::Void About_Load(System::Object^  sender, System::EventArgs^  e){}
 
 //==============================================================================
-private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e)
-{
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e){}
 	
-}
 	};
 }

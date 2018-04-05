@@ -77,6 +77,7 @@ namespace databaseofstudents {
 //variables
 	int IndexofSubject;
 	int IndexofMarks;
+
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Button^  button5;

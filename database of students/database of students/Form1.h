@@ -1,6 +1,8 @@
 #pragma once
+
 #include "About.h"
 #include "Edit.h"
+#include "Login.h"
 
 namespace databaseofstudents {
 
@@ -11,7 +13,6 @@ namespace databaseofstudents {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
-
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
@@ -75,18 +76,20 @@ namespace databaseofstudents {
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	private: System::Windows::Forms::BindingSource^  bindingSource1;
 	private: System::Windows::Forms::ProgressBar^  progressBar1;
+	private: System::Windows::Forms::Timer^  timer1;
+	private: System::Windows::Forms::ToolStripMenuItem^  sECRETToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  aCCESSToolStripMenuItem;
 	private: System::ComponentModel::IContainer^  components;
 
 
 
 	protected: 
 
-
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
+	
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -127,6 +130,9 @@ namespace databaseofstudents {
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->bindingSource1 = (gcnew System::Windows::Forms::BindingSource(this->components));
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->sECRETToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->aCCESSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
@@ -134,8 +140,8 @@ namespace databaseofstudents {
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->stasrtToolStripMenuItem, 
-				this->mARKSToolStripMenuItem, this->iNFOToolStripMenuItem});
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->stasrtToolStripMenuItem, 
+				this->mARKSToolStripMenuItem, this->sECRETToolStripMenuItem, this->iNFOToolStripMenuItem});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(895, 24);
@@ -190,7 +196,7 @@ namespace databaseofstudents {
 			// aboutAuthorToolStripMenuItem
 			// 
 			this->aboutAuthorToolStripMenuItem->Name = L"aboutAuthorToolStripMenuItem";
-			this->aboutAuthorToolStripMenuItem->Size = System::Drawing::Size(145, 22);
+			this->aboutAuthorToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 			this->aboutAuthorToolStripMenuItem->Text = L"About author";
 			this->aboutAuthorToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutAuthorToolStripMenuItem_Click);
 			// 
@@ -408,6 +414,24 @@ namespace databaseofstudents {
 			this->progressBar1->TabIndex = 27;
 			this->progressBar1->Click += gcnew System::EventHandler(this, &Form1::progressBar1_Click);
 			// 
+			// timer1
+			// 
+			this->timer1->Interval = 1000;
+			// 
+			// sECRETToolStripMenuItem
+			// 
+			this->sECRETToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->aCCESSToolStripMenuItem});
+			this->sECRETToolStripMenuItem->Name = L"sECRETToolStripMenuItem";
+			this->sECRETToolStripMenuItem->Size = System::Drawing::Size(59, 20);
+			this->sECRETToolStripMenuItem->Text = L"SECRET";
+			// 
+			// aCCESSToolStripMenuItem
+			// 
+			this->aCCESSToolStripMenuItem->Name = L"aCCESSToolStripMenuItem";
+			this->aCCESSToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->aCCESSToolStripMenuItem->Text = L"ACCESS";
+			this->aCCESSToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aCCESSToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -452,29 +476,12 @@ namespace databaseofstudents {
 
 		}
 #pragma endregion
-private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) 
-		 {
-			 this -> progressBar1 -> Visible = false;
-		 }
+
+private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void stasrtToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {}
-//==============================================================================
-private: System::Void qUITToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			Application::Exit();
-		 }
-
-//==============================================================================
-private: System::Void aboutAuthorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			About^ info = gcnew About();
-			info->Show();
-		 }
-
-//==============================================================================
-private: System::Void dATABASEToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
-		{
-			;
-		}
+private: System::Void qUITToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void aboutAuthorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void dATABASEToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){}
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {}
@@ -484,162 +491,17 @@ private: System::Void textBox6_TextChanged(System::Object^  sender, System::Even
 private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
 
 
-//==============================================================================
-//Add
-
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			 try
-			 {
-				MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
-			 
-				int NbofIndex1 = Int32::Parse( Index1 -> Text );
-			 
-				String^ sName = Name1 -> Text;
-				String^ sSurname = Surname1 -> Text; 
-
-				int YearofBirth = Int32::Parse( Year1 -> Text );
-				int MonthofBirth = Int32::Parse( Month1 -> Text );
-				int DayofBirth = Int32::Parse( Day1 -> Text );
-				Birth1 -> Text = Year1 -> Text + "-" + Month1 -> Text + "-" + Day1 -> Text;
-
-				MySqlCommand^ command = gcnew MySqlCommand( "insert into baza_studentow values(" +NbofIndex1+ ", '"+sName+"', '"+sSurname+"',"+YearofBirth+","+MonthofBirth+","+DayofBirth+") ", connect );
-				//Connect -> Open();
-				MySqlDataReader^ DataR;
-				connect -> Open();
-				DataR = command -> ExecuteReader();
-				MessageBox::Show( "ADD COMPLETED!!!" );
-			 }
-			 catch( Exception^ ex )
-			 {
-				MessageBox::Show( ex -> Message );
-			 }
-		 }
-
-//==============================================================================
-//Change
-
-private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			try
-			{
-				MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
-			 
-				int NbofIndex1 = Int32::Parse( Index1 -> Text );
-			 
-				String^ sName = Name1 -> Text;
-				String^ sSurname = Surname1 -> Text; 
-
-				int YearofBirth = Int32::Parse( Year1 -> Text );
-				int MonthofBirth = Int32::Parse( Month1 -> Text );
-				int DayofBirth = Int32::Parse( Day1 -> Text );
-				Birth1 -> Text = Year1 -> Text + "-" + Month1 -> Text + "-" + Day1 -> Text;
-
-				MySqlCommand^ command = gcnew MySqlCommand( "update baza_studentow set Name='"+sName+"', Surname='"+sSurname+"', YearofB="+YearofBirth+" , MonthofB="+MonthofBirth+",DayofB="+DayofBirth+" WHERE NbofIndex="+NbofIndex1+" ", connect );
-				//Connect -> Open();
-				MySqlDataReader^ DataR;
-				connect -> Open();
-				DataR = command -> ExecuteReader();
-				connect -> Close();
-				MessageBox::Show( "UPDATE COMPLETED!!!" );
-			}
-			catch( Exception^ ex )
-			{
-				MessageBox::Show(ex -> Message);
-			}
-		 }
-
-//==============================================================================
-//Remove
-
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		try
-			{
-				MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
-			 
-				int NbofIndex1 = Int32::Parse( Index1 -> Text );
-			 
-				MySqlCommand^ command = gcnew MySqlCommand( "delete from baza_studentow WHERE NbofIndex="+NbofIndex1+" ", connect );
-				
-				MySqlDataReader^ DataR;
-				connect -> Open();
-				DataR = command -> ExecuteReader();
-				connect -> Close();
-				MessageBox::Show( "REMOVE COMPLETED!!!" );
-			}
-			catch( Exception^ ex )
-			{
-				MessageBox::Show(ex -> Message);
-			}
-	}
-
-//==============================================================================
-//Search
-
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-	dataGridView1 -> Visible = true;
-		try
-			{
-				int NbofIndex1 = Int32::Parse( Index1 -> Text );
-				MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
-				MySqlDataAdapter^ command = gcnew MySqlDataAdapter("select * from baza_studentow WHERE NbofIndex="+NbofIndex1+" ", connect );
-				connect -> Open();
-				DataTable^ Tab = gcnew DataTable();
-				command -> Fill( Tab );
-				bindingSource1 -> DataSource = Tab;
-				dataGridView1 -> DataSource = bindingSource1;
-				connect -> Close();
-			}
-		catch(Exception^ ex)
-		    {
-				MessageBox::Show( ex -> Message );
-			}
-	}
-//==============================================================================
-//All
- private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e)
-{
-		dataGridView1 -> Visible = true;
-		this -> progressBar1 -> Visible = true;
-		try
-			{
-				MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
-				MySqlDataAdapter^ command = gcnew MySqlDataAdapter("select * from baza_studentow", connect );
-				connect -> Open();
-				DataTable^ Tab = gcnew DataTable();
-				command -> Fill( Tab );
-				bindingSource1 -> DataSource = Tab;
-				dataGridView1 -> DataSource = bindingSource1;
-				connect -> Close();
-				this -> progressBar1 -> Value = 100;
-			}
-		catch(Exception^ ex)
-		    {
-				MessageBox::Show( ex -> Message );
-			}
-		//Application::DoEvents();
-		//Sleep(1000);
-}
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e){}
 private: System::Void dataGridView1_SizeChanged(System::Object^  sender, System::EventArgs^  e) {}
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-private: System::Void eDITToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			 Edit^ Edit_Form = gcnew Edit();
-			 Edit_Form->Show();
-			 //Form1::Enabled = true;
-			 //Application::Exit();
-			 //Form1^ temp = gcnew Form1();
-			 //temp -> Enabled = false;
-			 //temp -> Visible = false;
-		 }
+private: System::Void eDITToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void progressBar1_Click(System::Object^  sender, System::EventArgs^  e) {}
-private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
-		 }
-};
+private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {}
+private: System::Void aCCESSToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	
+	};
 }
