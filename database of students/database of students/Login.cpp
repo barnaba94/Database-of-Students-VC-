@@ -5,10 +5,13 @@ using namespace databaseofstudents;
 
 System::Void Login::button1_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
+
 			 if( ( textBox1 -> Text == "Mikolaj") && ( textBox2 -> Text == "Felek") )
 			 {
+				 MessageBox::Show("Correct login & password");
+				 this -> Hide();
 				 Secret^ secretdupa = gcnew Secret();
-				 secretdupa -> Show();
+				 secretdupa -> ShowDialog();
 			 }
 			 else
 			 {

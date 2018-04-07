@@ -106,6 +106,8 @@ namespace databaseofstudents {
 			this->qUITToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mARKSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eDITToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sECRETToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->aCCESSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->iNFOToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutAuthorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -131,8 +133,6 @@ namespace databaseofstudents {
 			this->bindingSource1 = (gcnew System::Windows::Forms::BindingSource(this->components));
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->sECRETToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->aCCESSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
@@ -186,6 +186,20 @@ namespace databaseofstudents {
 			this->eDITToolStripMenuItem->Text = L"&Edit";
 			this->eDITToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::eDITToolStripMenuItem_Click);
 			// 
+			// sECRETToolStripMenuItem
+			// 
+			this->sECRETToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->aCCESSToolStripMenuItem});
+			this->sECRETToolStripMenuItem->Name = L"sECRETToolStripMenuItem";
+			this->sECRETToolStripMenuItem->Size = System::Drawing::Size(59, 20);
+			this->sECRETToolStripMenuItem->Text = L"SECRET";
+			// 
+			// aCCESSToolStripMenuItem
+			// 
+			this->aCCESSToolStripMenuItem->Name = L"aCCESSToolStripMenuItem";
+			this->aCCESSToolStripMenuItem->Size = System::Drawing::Size(116, 22);
+			this->aCCESSToolStripMenuItem->Text = L"ACCESS";
+			this->aCCESSToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aCCESSToolStripMenuItem_Click);
+			// 
 			// iNFOToolStripMenuItem
 			// 
 			this->iNFOToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->aboutAuthorToolStripMenuItem});
@@ -196,7 +210,7 @@ namespace databaseofstudents {
 			// aboutAuthorToolStripMenuItem
 			// 
 			this->aboutAuthorToolStripMenuItem->Name = L"aboutAuthorToolStripMenuItem";
-			this->aboutAuthorToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->aboutAuthorToolStripMenuItem->Size = System::Drawing::Size(145, 22);
 			this->aboutAuthorToolStripMenuItem->Text = L"About author";
 			this->aboutAuthorToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutAuthorToolStripMenuItem_Click);
 			// 
@@ -417,20 +431,6 @@ namespace databaseofstudents {
 			// timer1
 			// 
 			this->timer1->Interval = 1000;
-			// 
-			// sECRETToolStripMenuItem
-			// 
-			this->sECRETToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->aCCESSToolStripMenuItem});
-			this->sECRETToolStripMenuItem->Name = L"sECRETToolStripMenuItem";
-			this->sECRETToolStripMenuItem->Size = System::Drawing::Size(59, 20);
-			this->sECRETToolStripMenuItem->Text = L"SECRET";
-			// 
-			// aCCESSToolStripMenuItem
-			// 
-			this->aCCESSToolStripMenuItem->Name = L"aCCESSToolStripMenuItem";
-			this->aCCESSToolStripMenuItem->Size = System::Drawing::Size(152, 22);
-			this->aCCESSToolStripMenuItem->Text = L"ACCESS";
-			this->aCCESSToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aCCESSToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 

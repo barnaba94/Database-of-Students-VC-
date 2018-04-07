@@ -20,6 +20,8 @@ namespace databaseofstudents {
 		Login(void)
 		{
 			InitializeComponent();
+			textBox2 -> PasswordChar = '*';
+			textBox2 -> MaxLength = 15;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -69,7 +71,7 @@ namespace databaseofstudents {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(20, 56);
+			this->label1->Location = System::Drawing::Point(12, 51);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(56, 17);
 			this->label1->TabIndex = 0;
@@ -80,7 +82,7 @@ namespace databaseofstudents {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(28, 100);
+			this->label2->Location = System::Drawing::Point(20, 95);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(48, 17);
 			this->label2->TabIndex = 1;
@@ -89,25 +91,27 @@ namespace databaseofstudents {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(96, 56);
+			this->textBox1->Location = System::Drawing::Point(68, 51);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(149, 20);
+			this->textBox1->Size = System::Drawing::Size(169, 20);
 			this->textBox1->TabIndex = 2;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(96, 100);
+			this->textBox2->Location = System::Drawing::Point(68, 95);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(149, 20);
+			this->textBox2->Size = System::Drawing::Size(169, 20);
 			this->textBox2->TabIndex = 3;
 			// 
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(238)));
-			this->button1->Location = System::Drawing::Point(122, 169);
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"button1.Image")));
+			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button1->Location = System::Drawing::Point(94, 164);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(87, 30);
+			this->button1->Size = System::Drawing::Size(112, 30);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"ENTER!";
 			this->button1->UseVisualStyleBackColor = true;
@@ -124,6 +128,7 @@ namespace databaseofstudents {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^  >(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
 			this->Name = L"Login";
 			this->Text = L"Login";
 			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
