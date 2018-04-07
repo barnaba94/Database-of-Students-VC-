@@ -19,6 +19,7 @@ namespace databaseofstudents {
 		Secret(void)
 		{
 			InitializeComponent();
+			Combo();
 			textBox2 -> PasswordChar = '*';
 			textBox1 -> MaxLength = 15;
 			textBox2 -> MaxLength = 15;
@@ -82,6 +83,8 @@ namespace databaseofstudents {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 0;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Secret::comboBox1_SelectedIndexChanged);
+			this->comboBox1->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Secret::comboBox1_MouseDoubleClick);
 			// 
 			// label1
 			// 
@@ -179,13 +182,7 @@ namespace databaseofstudents {
 #pragma endregion
 
 private: System::Void Secret_Load(System::Object^  sender, System::EventArgs^  e) {}
-private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			 ;
-		 }
-
-private:Void FillCombo( void ) {}
-
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e){}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) 
 		 {
 			  try
@@ -210,8 +207,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 }
 		 }
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e)
-			 {
-				 try
+		{
+			try
 			{
 				MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
 			 
@@ -225,11 +222,39 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 				DataR = command -> ExecuteReader();
 				connect -> Close();
 				MessageBox::Show( "REMOVE ADMIN COMPLETED!!!" );
+				connect -> Close();
 			}
 			catch( Exception^ ex )
 			{
 				MessageBox::Show(ex -> Message);
 			}
-			 }
-};
+		}
+	private:Void Combo(void)
+	{
+		try
+		{
+			MySqlConnection^ connect = gcnew MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=;Database=studenci");
+			MySqlCommand^ command = gcnew MySqlCommand( "select * from admin_data", connect );
+			MySqlDataReader^ der;
+			connect -> Open();
+			der = command -> ExecuteReader();
+			while( der -> Read() )
+			{
+				String^ sLoginUser;
+				sLoginUser = der -> GetString( "Login" );
+				comboBox1 -> Items -> Add( sLoginUser );
+			}
+		}
+		catch( Exception^ ex )
+		{
+			MessageBox::Show( ex -> Message );	
+		}
+
+	}
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
+{
+	textBox1 ->Text = Convert::ToString( comboBox1 -> SelectedItem); 
+}
+private: System::Void comboBox1_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {}
+	};
 }
